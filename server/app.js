@@ -4,8 +4,9 @@ const graphqlHTTP = require('express-graphql');
 //  allows for the use of .env files and variables
 require('dotenv').config();
 
-//  graphQL imports
+//  file imports
 const schema = require('./schema/schema');
+const mongoose = require('./config/mongo');
 
 const app = express();
 
