@@ -1,5 +1,6 @@
 const express = require('express');
 const graphqlHTTP = require('express-graphql');
+const cors = require('cors');
 
 //  allows for the use of .env files and variables
 require('dotenv').config();
@@ -9,6 +10,8 @@ const schema = require('./schema/schema');
 const mongoose = require('./config/mongo');
 
 const app = express();
+
+app.use(cors());
 
 //  Middleware
 app.use(
