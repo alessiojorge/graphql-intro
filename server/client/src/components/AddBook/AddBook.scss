@@ -5,4 +5,36 @@
   left: 0;
   width: 100vw;
   height: 200px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  &__input {
+    width: 50vw;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+
+    &--label {
+      padding: 0 10px;
+    }
+
+    &--input {
+      width: 50%;
+    }
+  }
+
+  &__submit {
+    font-size: 25px;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: #171714;
+    cursor: pointer;
+  }
 }

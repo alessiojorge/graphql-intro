@@ -10,7 +10,8 @@ export class BookDetails extends Component {
     return (
       <div className="book">
         <p className="out">
-          {this.props.data.book && this.props.data.book.genre}
+          {this.props.data.book &&
+            this.props.data.book.genre + ' ' + this.props.data.book.author.name}
         </p>
       </div>
     );

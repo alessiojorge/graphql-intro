@@ -58,6 +58,7 @@ export class AddBook extends Component {
           <div className="form__input">
             <label className="form__input--label">Book Name:</label>
             <input
+              className="form__input--input"
               type="text"
               name="name"
               value={this.state.name}
@@ -68,6 +69,7 @@ export class AddBook extends Component {
           <div className="form__input">
             <label className="form__input--label">Genre:</label>
             <input
+              className="form__input--input"
               type="text"
               name="genre"
               value={this.state.genre}
@@ -78,6 +80,7 @@ export class AddBook extends Component {
           <div className="form__input">
             <label className="form__input--label">Author:</label>
             <select
+              className="form__input--input"
               type="text"
               name="author"
               value={this.state.author}
@@ -87,9 +90,14 @@ export class AddBook extends Component {
             </select>
           </div>
 
-          <div className="form__input">
-            <input type="submit" value="+" />
-          </div>
+          <input
+            type="submit"
+            value="+"
+            className="form__submit"
+            disabled={
+              this.state.name.length === 0 && this.state.genre.length === 0
+            }
+          />
         </form>
       </div>
     );
