@@ -1,0 +1,13 @@
+.books {
+  &__title {
+    padding: 20px 0;
+  }
+
+  &__list {
+    list-style-type: none;
+  }
+
+  &__list-item {
+    padding: 5px 0;
+  }
+}

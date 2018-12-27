@@ -1,35 +1,44 @@
 import React, { Component } from 'react';
-import './BookList.css';
+import './BookList.scss';
+import BookDetails from './BookDetails/BookDetails';
 
-import { gql } from 'apollo-boost';
 import { graphql } from 'react-apollo';
-
-const getBooksQuery = gql`
-  {
-    books {
-      name
-      id
-    }
-  }
-`;
+import { getBooksQuery } from '../../queries/queries';
 
 export class BookList extends Component {
+  state = {
+    bookDetails: null
+  };
   displayBooksHandler = () => {
     const data = this.props.data;
     if (data.loading) {
       return 'loading books...';
     } else {
       return data.books.map(book => {
-        return <li key={book.id}>{book.name}</li>;
+        return (
+          <li
+            key={book.id}
+            onClick={() => this.bookDetailsHandler(book.id)}
+            className="books__list-item"
+          >
+            {book.name}
+          </li>
+        );
       });
     }
   };
+
+  bookDetailsHandler = id => {
+    this.setState({
+      bookDetails: id
+    });
+  };
   render() {
-    console.log(this.props.data);
     return (
-      <div>
-        <h1>BOOKS:</h1>
-        <ul className="book-list">{this.displayBooksHandler()}</ul>
+      <div className="books">
+        <h1 className="books__title">BOOKS:</h1>
+        <ul className="books__list">{this.displayBooksHandler()}</ul>
+        <BookDetails bookId={this.state.bookDetails} />
       </div>
     );
   }
